@@ -1,1 +1,1 @@
-web: gunicorn wedin.wsgi --log-file -
+web: gunicorn wedin.wsgi --workers=2
