@@ -1,1 +1,1 @@
-web: gunicorn wedin.wsgi
+web: gunicorn wedin.wsgi --log-file -
