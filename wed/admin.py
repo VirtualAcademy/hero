@@ -2,7 +2,6 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery
-from .forms import GalleryForm
 
 class HeroAdmin(admin.ModelAdmin):
 	list_display=['__unicode__','email','phone']
