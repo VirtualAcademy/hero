@@ -43,3 +43,10 @@ def	home(request):
 					'registry':registry,
 					'gallery':gallery}
 		return render(request,'index.html',context)
+
+
+def custom_404(request):
+    return render(request,'404.html')
+
+def custom_500(request):
+    return render(request,'500.html')

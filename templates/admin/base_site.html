@@ -1,0 +1,22 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">  
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+    <!-- Plugins CSS -->   
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link id="theme-style" rel="stylesheet" href="{% static 'css/styles-2.css' %}">
+{% endblock %}
+{% block title %}ODIE & LEO|Admin{% endblock %}
+1
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">ODIE & LEO Website Administration</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
