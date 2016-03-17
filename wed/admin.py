@@ -2,34 +2,43 @@ from django.contrib import admin
 
 # Register your models here.
 from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery
+from .forms import GalleryForm
 
 class HeroAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','email','phone']
 	class Meta:
 		model=Hero
 
 class EventAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','venue','startime','endtime']
 	class Meta:
 		model=Event
 		
 class DirectionAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','means','direction','event']
 	class Meta:
 		model=Direction
 		
 class FacilityAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','description','event']
 	class Meta:
 		model=Facility
 		
 class StoryAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','title', 'content','created','updated']
 	class Meta:
 		model=Story
 		
 class GiftregistryAdmin(admin.ModelAdmin):
 	plural = 'Giftregistries'
+	list_display=['__unicode__','note']
 	class Meta:
 		model=Giftregistry
 		plural = 'Giftregistries'
 		
 class GalleryAdmin(admin.ModelAdmin):
+	list_display=['__unicode__','photo']
+	search_fields = ('photo',)
 	class Meta:
 		model=Gallery
 				
