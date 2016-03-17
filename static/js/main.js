@@ -100,8 +100,6 @@ $(document).ready(function() {
    
     /*display marker 1 address on load */
     google.maps.event.trigger(map.markers[0], 'click');
-    /*display marker 2 address on load */
-    google.maps.event.trigger(map.markers[1], 'click');
     
     
     
