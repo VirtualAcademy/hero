@@ -79,15 +79,15 @@ $(document).ready(function() {
     /* ======= Google Map ======= */
     map = new GMaps({
         div: '#map',
-        lat: 5.9801109,
-        lng: 10.1419419,
+        lat: 5.977791,
+        lng: 10.137178,
         scrollwheel: false,
         zoom: 15,
     });
     
     map.addMarker({
-        lat: 5.9801109,
-        lng: 10.1419419,
+        lat: 5.977791,
+        lng: 10.137178,
         verticalAlign: 'top',
         title: 'Ceremony Location',  
         infoWindow: {
