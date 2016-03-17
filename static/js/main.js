@@ -82,7 +82,7 @@ $(document).ready(function() {
         lat: 5.977791,
         lng: 10.137178,
         scrollwheel: false,
-        zoom: 15,
+        zoom: 16,
     });
     
     map.addMarker({
@@ -97,17 +97,7 @@ $(document).ready(function() {
         
     });
     
-
-    map.addMarker({
-        lat: 5.9801109,
-        lng: 10.1419419,
-        title: 'Reception Location',      
-        infoWindow: {
-            content: '<div class="note">Ceremony and Reception</div><h4 class="map-title script">Nkani-nkwi Hall</h4><div class="address"><span class="region"> Mankon</span><br><span class="postal-code">237</span><br><span class="city-name">Bamenda</span></div>'
-        } 
-        
-    });
-    
+   
     /*display marker 1 address on load */
     google.maps.event.trigger(map.markers[0], 'click');
     /*display marker 2 address on load */
