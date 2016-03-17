@@ -32,6 +32,7 @@ def	home(request):
 		for info in Hero.objects.all():
 			context = {'bride':info.bride_nick,
 					'groom':info.groom_nick,
+					'slogan':info.slogan,
 					'wed_date':info.wedin_date,
 					'email':info.email,
 					'phonenumber':info.phone,
