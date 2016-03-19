@@ -229,6 +229,14 @@
                 <div class="message-inner center-block">
 				{% for reg in registry %}
                     <div class="intro">{{reg.note}}</div>
+                    <div class="row">
+                    <ul>
+                    <div class="col-sm-12" style="">
+                    {% for gift in gifts %}
+                    <li>{{gift}}</li>
+                    {% endfor %}
+                    </ul>
+                    </div>
                     <div class="thank-you script">{{reg.signature}} <i class='fa fa-smile-o'></i></div>
                     <div class="signature script">{{bride}} & {{groom}}</div>
                     <div class="couple-profile"></div>
