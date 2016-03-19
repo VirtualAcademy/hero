@@ -1,7 +1,8 @@
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery, Rsvp
+from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery, Rsvp, Gift
+
 
 # Create your views here.
 def	home(request):
@@ -29,6 +30,7 @@ def	home(request):
 		stories=Story.objects.all()
 		registry=Giftregistry.objects.all()
 		gallery=Gallery.objects.all().order_by('photo')
+		gift=Gift.objects.all().order_by('title')
 		for info in Hero.objects.all():
 			context = {'bride':info.bride_nick,
 					'groom':info.groom_nick,
@@ -41,7 +43,8 @@ def	home(request):
 					'facilities':facilities,
 					'stories':stories,
 					'registry':registry,
-					'gallery':gallery}
+					'gallery':gallery,
+					'gifts':gift}
 		return render(request,'index.html',context)
 
 
