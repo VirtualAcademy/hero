@@ -72,6 +72,52 @@ class Giftregistry(models.Model):
 		return smart_unicode(u'Gift Registry')
 	
 
+
+class Gift(models.Model):
+	title = models.CharField(max_length=100)
+	desc = models.TextField(
+		'description', blank=True, default='',
+		help_text='Specific details of this item, such as preferred model.')
+	url = models.URLField(
+		blank=True, default='', help_text='A website showing the item.')
+	image = models.ImageField(
+		upload_to='gift_registry/images', null=True, blank=True,
+		help_text='A photo or illustration.')
+	one_only = models.BooleanField(
+		default=True,
+		help_text=(
+			'When checked, remove item from list someone has chosen it. For '
+			'some items, you may be happy to receive multiple.'))
+	live = models.BooleanField(
+		default=False,
+		help_text='Make this item visible to public.')
+
+	class Meta:
+		ordering = ['title']
+
+	def __unicode__(self):
+		return smart_unicode(self.title)
+
+	def bookable(self):
+		return not self.one_only or self.giver_set.count() <= 0
+
+	def count_givers(self):
+		return self.giver_set.count()
+
+
+class Giver(models.Model):
+	gift = models.ForeignKey(Gift)
+	email = models.EmailField()
+
+	class Meta:
+		ordering = ['id']
+		unique_together = ('gift', 'email')
+
+	def __unicode__(self):
+		return smart_unicode(self.email)
+
+
+
 class Gallery(models.Model):
 	photo = models.ImageField(upload_to='gallery/', max_length=100)
 	alt_text = models.CharField(max_length=200,default='pic')
