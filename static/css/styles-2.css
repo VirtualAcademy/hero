@@ -918,6 +918,24 @@ label {
   padding-left: 25px;
   display: inline-block;
 }
+.modal .gifts-list {
+  margin-bottom: 30px;
+}
+.modal .gifts-list li {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.modal .gifts-list li .fa {
+  color: #36b3a8;
+  display: inline-block;
+  margin-right: 5px;
+}
+.modal .gifts-list li .details {
+  font-size: 14px;
+  color: #786b67;
+  padding-left: 25px;
+  display: inline-block;
+}
 /* RSVP Modal */
 .modal-rsvp .modal-title {
   margin-bottom: 0;
