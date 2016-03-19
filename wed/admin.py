@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery
+from .models import Hero, Event, Direction, Facility, Story, Giftregistry, Gallery, Gift, Giver
 
 class HeroAdmin(admin.ModelAdmin):
 	list_display=['__unicode__','email','phone']
@@ -39,7 +39,16 @@ class GalleryAdmin(admin.ModelAdmin):
 	list_display=['__unicode__','photo']
 	search_fields = ('photo',)
 	class Meta:
-		model=Gallery
+		model=Gallery	
+		
+class GiftAdmin(admin.ModelAdmin):
+	class Meta:
+		model=Gift
+
+class GiverAdmin(admin.ModelAdmin):
+	class Meta:
+		model=Giver
+
 				
 admin.site.register(Hero,HeroAdmin)
 admin.site.register(Event,EventAdmin)
@@ -48,4 +57,7 @@ admin.site.register(Facility,FacilityAdmin)
 admin.site.register(Story,StoryAdmin)
 admin.site.register(Giftregistry,GiftregistryAdmin)
 admin.site.register(Gallery,GalleryAdmin)
+admin.site.register(Gift,GiftAdmin)
+admin.site.register(Giver,GiverAdmin)
+
 
