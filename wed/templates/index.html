@@ -229,13 +229,8 @@
                 <div class="message-inner center-block">
 				{% for reg in registry %}
                     <div class="intro">{{reg.note}}</div>
-                    <div class="row">
-                    <ul>
-                    <div class="col-sm-12" style="">
-                    {% for gift in gifts %}
-                    <li>{{gift}}</li>
-                    {% endfor %}
-                    </ul>
+                    <div class="signature script">
+                    <span class="gifts-info display-block list-link"><a href="#" data-toggle="modal" data-target="#gifts-modal"><h1>Open Gift-List</h1></a></span>
                     </div>
                     <div class="thank-you script">{{reg.signature}} <i class='fa fa-smile-o'></i></div>
                     <div class="signature script">{{bride}} & {{groom}}</div>
@@ -420,7 +415,7 @@
 							{% for items in direct.list %} 
 							{% if forloop.first %} 
 							{% thumbnail items.pix "100x100" crop="center" as im %}                          
-                            <div class="figure-container"><img class="img-responsive" src="{{im.url}}" width="{{ im.width }}" height="{{ im.height }}" alt="picture" /></div>
+                            <div class="figure-container"><img class="img-responsive" src="{{items.pix.url}}" width="{{ im.width }}" height="{{ im.height }}" alt="picture" /></div>
                             {% endthumbnail %}
                             {% endif %}
                             <h5 class="section-title"><i class="fa fa-{{items.means|lower}}"></i> {{items.means}}r</h5>
@@ -468,6 +463,31 @@
         </div>
     </div><!--//modal-->
 
+<!-- Gift modal -->
+    <div id="gifts-modal" class="gifts-modal modal" tabindex="-1" role="dialog" aria-labelledby="giftsModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="giftsModalLabel">Gifts List</h4>
+                </div><!--//modal-header-->
+                <div class="modal-body">
+                    <div class="row">
+                        {% for gift in gifts %}
+                        <div class="event-col col-md-6 col-sm-6 col-xs-12">
+                            <ul class="list-unstyled gifts-list">
+                                <li><i class="fa fa-circle"></i>{{gift.title|title}}
+                                </li>
+                            </ul>
+                        </div><!--//gift-col-->
+                            {% endfor %}
+                    </div><!--//row-->
+                </div><!--//modal-body-->
+            </div><!--//modal-content-->
+        </div>
+    </div><!--//modal-->
+ 
+
 	<div class="config-wrapper">
         <div class="config-wrapper-inner">
             <a id="config-trigger" class="config-trigger" href="#"><i class="fa fa-music"></i></a>
@@ -477,8 +497,6 @@
             </div><!--//configure-panel-->
         </div><!--//config-wrapper-inner-->
     </div><!--//config-wrapper-->
-
- 
     <!-- Main Javascript -->          
     <script type="text/javascript" src="{% static 'plugins/jquery-1.11.3.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
